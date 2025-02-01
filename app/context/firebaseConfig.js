@@ -1,5 +1,6 @@
 import { initializeApp, getApps } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -8,6 +9,8 @@ const firebaseConfig = {
     storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
     messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
     appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+    // NEXT_USERNAME:'curso_nextjs@coder.jesus',
+    // NEXT_PASSWORD:'cursoCoderNext'
 };
 
 
@@ -18,4 +21,5 @@ if (!getApps().length) {
     app = getApps()[0];
 }
 
+export const auth = getAuth(app);
 export const db = getFirestore(app);

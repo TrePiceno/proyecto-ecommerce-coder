@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../context/cartContext";
 import Image from "next/image";
 import Link from "next/link";
+import LoadingUI from "../components/LoadingUI/page";
 
 const categorias = ["Todos", "Gamer", "Clásica"];
 
@@ -24,6 +25,7 @@ const Productos = () => {
     fetchProducts();
   }, [getProducts]);
 
+
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Todos");
 
   const handleCategoriaChange = (category) => {
@@ -36,6 +38,7 @@ const Productos = () => {
       : productos.filter(
           (producto) => producto.category === categoriaSeleccionada
         );
+
 
   // cargar productos del mock a firebase
   // const cargarProductosColeccion = () => {
